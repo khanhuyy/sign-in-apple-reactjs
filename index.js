@@ -39,10 +39,15 @@ function verifyJWT(json, publicKey) {
 }
 
 app.post('/login', async (req, res) => {
-    console.log(req)
+    req.body = ({
+        "email": "huypk239@gmail.com",
+        "provider": "apple",
+        "password": "12345"
+    }, "ressponse")
 
     const { provider, response } = req.body
 
+    console.log(provider)
     if (provider === 'apple') {
         const {identityToken, user} = response.response
 
